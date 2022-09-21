@@ -1,0 +1,140 @@
+1. Describe what Hibernate is and what it is used for.
+1. Describe qué es Hibernate y para qué se utiliza.
+
+RESPUESTA
+Hibernate es una herramienta de mapeo para java, 
+facilita el mapeo de atributos en una base de datos 
+tradicional y el modelo de objetos de una aplicación.
+en resumen hibernate agiliza la relación entre la aplicacion 
+y nuestra base de datos SQL,optimizando asi nuestro
+flujo de trabajo evitando caer en codigo repetitivo.
+
+Es un frameworks que funciona en gran medida como
+un puente para conectar dos modelos de datos diferentes.
+
+2. Write a Java program to generate a magic square of order n (all row, column, and
+diagonal sums are equal).
+From Wikipedia, In recreational mathematics and combinatorial design, a magic
+square is a n x n square grid (where n is the number of cells on each side) filled with
+distinct positive integers in the range 1, 2, ..., n2 such that each cell contains a different
+integer and the sum of the integers in each row, column and diagonal is equal. The
+sum is called the magic constant or magic sum of the magic square. A square grid
+with n cells on each side is said to have order n.
+
+RESPUESTA
+public class CuadradoMagico{
+    int Level = 3;
+    int arreglo[][];
+
+    public CuadradoMagico(){
+        arreglo =  new int[Level][Level];
+        generar();
+    }
+
+    public void generar(){
+        int mitad = (Level/2);
+        int ubicacionC = mitad;
+        int ubicacionF = 0;
+
+        arreglo[ubicacionF][ubicacionC] = 1;
+
+        int ubicacionFActual = ubicacionF;
+        int ubicacionCActual = ubicacionC;
+
+        for(int i=2; i<=(Math.pow(arreglo.length,2)); i++){
+            ubicacionF--;
+            ubicacionC--;
+
+            if(ubicacionF<0){
+                ubicacionF = arreglo.length-1;
+            }
+
+            if(ubicacionC<0){
+                ubicacionC = arreglo.length-1;
+            }
+            if(arreglo[ubicacionF][ubicacionC]==0){
+                arreglo[ubicacionF][ubicacionC]=i;
+            }else{
+                ubicacionF = ubicacionFActual + 1;
+                ubicacionC = ubicacionCActual;
+                arreglo[ubicacionF][ubicacionC] =i;
+            }
+            ubicacionFActual = ubicacionF;
+            ubicacionCActual = ubicacionC;
+        }
+        mostrarArreglo();
+    }
+
+    public void mostrarArreglo(){
+        for(int i=0; i<arreglo.length; i++){
+            for(int j=0; j<arreglo.length; j++){
+                System.out.print(arreglo[i][j] + "\t");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String... args) {
+        new CuadradoMagico();
+    }
+}
+
+3) Given an array of integers.
+Write an algorithm that brings all nonzero elements to the left of the array,
+and returns the number of nonzero elements.
+The algorithm should operate in place, i.e. shouldn't create a new array.
+The order of the nonzero elements does not matter.
+The numbers that remain in the right portion of the array can be anything.
+Example:
+Given the array [ 1, 0, 2, 0, 0, 3, 4 ], A possible answer is [ 4, 1, 3, 2, ?, ?, ? ],
+4 non-zero elements, where "?" can be any number.
+Code should have good complexity and minimize the number of writes to the array.
+[ 1, 0, -2, 0, 0, 3, 4, 0, 0]
+[ 4, 1, 3, -2, ?, ?, ? ] return 4
+- What is the complexity of your algorithm?
+
+public class Arreglito {
+
+    public static void main(String args[]) {
+
+        int arreglo[] = {1,0,3,0,6,0,0,5,4};
+        int auxiliar = 0;
+
+        //Aplicando el metodo de la burbuja
+
+        for (int i = 0; i < arreglo.length - 1; i++) {
+            for (int j = i; j < arreglo.length; j++) {
+                if (arreglo[i] < arreglo[j]) {
+                    auxiliar = arreglo[i];
+                    arreglo[i] = arreglo[j];
+                    arreglo[j] = auxiliar;
+                }
+            }
+        }
+
+        //Mostrando los datos ordenados
+        for (int i = 0; i < arreglo.length; i++) {
+            System.out.print(arreglo[i] + " ");
+        }
+
+    }
+}
+
+la complejidad del algoritmo no me parecio dificil utilizando el metodo de ordenamiento burbuja,
+no es el ideal pero en este ejercicio en particular fue mas rapido e intuitivo a simple vista.
+
+4) Create a package called document
+A. Include in it two classes, Invoice and Order, to represent invoices and orders,
+respectively.
+B. Next, out of the package, create a small program that creates objects of both types
+and displays them on the screen.
+C. Add a third document type, UrgentOrder, that inherits directly from Order. Check
+that the above program is still working properly if we replace an Order with an
+UrgentOrder.
+D. Create a new document type, called Contract, and include it in the
+HumanResources documents subpackage. In this last package, include also a type of
+CV document to represent the curriculum vitae of a person.
+E. If you haven't already done so, create a generic Document class from which inherit
+(directly or indirectly) all the other classes we have defined to represent different types
+of documents.
+

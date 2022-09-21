@@ -1,0 +1,57 @@
+public class CuadradoMagico{
+    int Level = 3;
+    int arreglo[][];
+
+    public CuadradoMagico(){
+        arreglo =  new int[Level][Level];
+        generar();
+    }
+
+    public void generar(){
+        int mitad = (Level/2);
+        int ubicacionC = mitad;
+        int ubicacionF = 0;
+
+        arreglo[ubicacionF][ubicacionC] = 1;
+
+        int ubicacionFActual = ubicacionF;
+        int ubicacionCActual = ubicacionC;
+
+        for(int i=2; i<=(Math.pow(arreglo.length,2)); i++){
+            ubicacionF--;
+            ubicacionC--;
+
+            if(ubicacionF<0){
+                ubicacionF = arreglo.length-1;
+            }
+
+            if(ubicacionC<0){
+                ubicacionC = arreglo.length-1;
+            }
+            if(arreglo[ubicacionF][ubicacionC]==0){
+                arreglo[ubicacionF][ubicacionC]=i;
+            }else{
+                ubicacionF = ubicacionFActual + 1;
+                ubicacionC = ubicacionCActual;
+                arreglo[ubicacionF][ubicacionC] =i;
+            }
+            ubicacionFActual = ubicacionF;
+            ubicacionCActual = ubicacionC;
+        }
+        mostrarArreglo();
+    }
+
+    public void mostrarArreglo(){
+        for(int i=0; i<arreglo.length; i++){
+            for(int j=0; j<arreglo.length; j++){
+                System.out.print(arreglo[i][j] + "\t");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String... args) {
+        new CuadradoMagico();
+    }
+}
+

@@ -1,0 +1,32 @@
+Write the following SQL queries:
+1. Name of window with AD_Window_ID = ‘100’
+2. Update window with AD_Window_ID = ‘100’ appending ‘--’ to the name of
+window with AD_Window_ID = ‘100’
+3. List of all tabs in window with AD_Window_ID = ‘100’
+4. List of tab name + field name of all tabs in AD_Window_ID = ‘100’ sorted by tab
+name and field name
+5. Name and number of tabs of all windows
+6. List of all windows with its number of fields, sorting by number of fields starting
+by the windows with a higher number of them
+7. Windows with more than 5 tabs
+
+
+Mi conocimiento en sql es muy teorico, pero leyendo un poco lo que me piden los 
+ejercicios puedo dar una respuesta teorica , se que existen comandos
+tales como:
+SELECT, este comando es utilizado para obtener registros
+de la base de datos.
+
+ListaColumnas se especifican las columnas.
+
+from es el comando que permite indicar la tabla a consultar
+los registros cargados
+
+nombre_tabla se usa para indicar el nombre de la tabla a consultar los datos
+
+
+
+utilizando estos comandos se que se podria crear una 
+pequeña ventana que contendra el numero ID:100 , mas adelante 
+se seleccionara para darle una actulizacion y poder cambiar
+el ID, mas adelante llamar esa tabla y mostrar los campos. 

@@ -1,0 +1,243 @@
+PROBLEMA 1 .
+Al leer los siguientes enunciados, indique qué información se
+impresa en la pantalla.
+
+<html>
+<script type="text/javascript">
+
+var numLlamadas = 0;
+function calculaBinomio(a, b)
+{
+
+var cuadradoDeA = a*a;
+var cuadradoDeB = b*b;
+numLlamadas++;
+return cuadradoDeA + cuadradoDeB + 2*a*b;
+}
+
+alert(calculaBinomio(2, 3));
+alert(calculaBinomio(4, 5));
+alert(numLlamadas);
+alert(typeof(cuadradoDeA));
+</script>
+</html>
+
+Explique detalladamente la 4ª salida:
+alert(typeof(cuadradoDeA));
+
+
+RESPUESTA
+
+Primer alert: 25
+(2*2) + (3*3) + (2*2*3)
+( 4 ) + ( 9 ) + ( 4 * 3)
+( 4 ) + ( 9 ) + ( 12 ) = 25
+
+
+segundo alert: 81
+(4*4) + (5*5) + (2*4*5)
+(16) + (25) + (8*5)
+(16) + (25) + (40)= 81
+
+tercer alert: 2
+va acumulando la cantidad de llamadas vistas anteriormente,
+cada vez que se utiliza la funcion calculaBinomio, la variable 
+numLlamadas incrementa en 1 (numLlamadas++).
+
+
+cuarto alert: undefined o indefinido
+en el cuarto alert podemos ver que se hace llamado de la funcion typeof, esta funcion 
+lo que realiza es la devolucion de un tipo de variable, en este caso nos devuelve
+indefinido por la razon que "cuadradoDeA" no tiene un tipo en si, no es entero,
+no es char, tampoco es una cadena de char, solo dice que tomara el valor ingresado
+en la funcion y lo multiplicara por si mismo. si realizamos la prueba de 
+alert(typeof(numLlamadas)) este nos devolvera Number, ya que var numLlamadas tiene un tipo entero
+guardado en su interior
+
+
+PROBLEMA 2.
+Como probablemente sabes en Javascript existe la variable de tipo String. Una de sus
+sus funciones es "toUpperCase", por lo que podemos hacer lo siguiente:
+
+var s2 = "Hello World!";
+alert(s2. toUpperCase ()); <- this will return: HELLO WORLD!
+
+Cómo reescribir la función anterior para que devuelva este texto (¡HOLA
+WORLD!) en minúsculas?
+
+RESPUESTA:
+El metodo contrario a "toUpperCase" es "toLowerCase"
+a diferencia de toUpperCase lo que realiza este (toLowerCase) es:
+convertir una cadena de String en minúsculas. la funcion dada en el ejercicio
+la reescribi de la siguiente forma
+
+<script type="text/javascript">
+
+        var s2 = "Hello World!";
+        alert((s2. toUpperCase ()). toLowerCase());
+        
+</script>
+
+esto devuelve hello world, toUpperCase convierte la cadena de s2 en mayuscula,
+pero toLowerCase agarra todo el String ya convertido en mayuscula y realiza lo 
+contrario, devuelve todo a minúsculas. esta forma la veo muy rebuscada, quizas lo mejor seria
+
+var s2 = "Hello World!";
+alert(s2. toLowerCase());
+y la devolucion sera todo en minúsculas.
+
+PROBLEMA 4.
+Escribe un programa en JavaScript para comprobar si una matriz es una matriz diagonal
+o no. En álgebra lineal, una matriz diagonal es una matriz en la que las entradas
+fuera de la diagonal principal son todas cero (la diagonal desde la parte superior izquierda hasta
+la inferior derecha).
+
+PARA MATRICES 3X3
+<script>
+
+    const array1 = [1,0,0];
+    const array2 = [0,3,0];
+    const array3 = [0,4,8];
+
+    var logic1 = false;
+    var logic2 = false;
+    var logic3 = false;
+
+    if ((array1[1] == 0) && (array1[2] == 0)){
+        logic1 = true;
+    }
+
+        
+    if ((array2[0] == 0) && (array2[2] == 0)){
+        logic2 = true;
+    }
+
+    if ((array3[0] == 0) && (array3[1] == 0)){
+        logic3 = true;
+    }
+
+
+    if ((logic1 == true) && (logic2 == true) && (logic3 == true)){
+        alert(true);
+    }
+    else{
+        alert(false);
+    }
+
+    en este ejemplo dara false. 
+    pero con este dara true
+    const array1 = [1,0,0];
+    const array2 = [0,3,0];
+    const array3 = [0,0,8]; 
+
+</script>
+
+
+EJERCICIOS DE REACT
+
+1. What are props in a component?
+Select all the options that apply.
+● Are the component parameters
+● is the state of the component
+● It is a mechanism to put data inside the component
+
+RESPUESTA
+These are the parameters of the component and are a mechanism for entering data into the component.
+ first and third options
+
+
+2. What is a component?
+Mark only one option.
+● An element
+● A function or class that returns an element
+● An element that returns a function or class
+
+RESPUESTA
+A function or class that returns an element
+
+
+3. Which of these component types are valid?
+Select all the options that apply.
+● Complete Component
+● Class Component
+● Component Function
+● Parent Component
+● Child Component
+
+RESPUESTA
+● Class Component
+● Component Function
+
+4.What is the state of a component?
+
+RESPUESTA
+State is a JS object internal to each component, 
+which attempts to represent the current state of the component.
+
+State es un objeto JS interno de cada componente,
+ que intenta representar el estado actual del mismo.
+
+5. What are the component lifecycle methods?
+
+RESPUESTA
+El ciclo de vida se puede dividir en 3 fases, el montado, actualización y desmontado del componente.
+- El montaje se produce la primera vez que un componente va a generarse, incluyéndose en el DOM.
+- La actualización se produce cuando el componente ya generado se está actualizando.
+- El desmontaje se produce cuando el componente se elimina del DOM.
+
+6.How would you set the state of a component?
+
+Crear un ES6 class, que extienda de React.Component.
+Agregar un método render().
+usar this.props dentro de render().
+
+7. Which of these implementations change the state of a component?
+Check only one option.
+● this.state.value = "my value"
+● this.setState({ value: "my value" })
+● this.state = { "value": "my value" }
+● Others:_____________________________
+
+RESPUESTA
+this.setState({ value: "my value" })
+
+8. What happens when we change the state of a component?
+el componente responde volviendo a renderizar.
+
+9.
+
+10. Write a component that receives a prop called "data", and renders an H1
+with the content of data.
+
+
+11. How do you import Javascript modules installed with NPM or YARN?
+Check only one option.
+● import name from 'node_modules/name';
+● import name from '../../node_modules/name/name.js'
+● import name from '../../node_modules/name/index.js'
+● import name from 'name';
+● Others:____________________________________
+
+RESPUESTA
+● import name from 'node_modules/name';
+
+12.12. How do I import the following component, considering that it is inside a file
+in the same directory, called MyComponent.js?
+Mark only one option.
+● import MyComponent from './MyComponent';
+● import { MyComponent } from 'MyComponent';
+● import MyComponent from 'MyComponent.js';
+● import { MyComponent } from './MyComponent.js';
+RESPUESTA
+import MyComponent from 'MyComponent.js';
+
+14. Explain, in your own words, what this component does.
+
+17. What is the use of the useEffect hook?
+RESPUESTA
+nos permite acceder a la variable de estado count (o a cualquier prop) directamente desde el efecto. No necesitamos una API especial para acceder a ella, ya que se encuentra en el ámbito de la función.
+
+18. How would you develop a custom hook that exposes methods to save and
+modify a counter? The hook must have a parameter that allows the
+developer to specify how much the counter should add for each call to the
+setter.
